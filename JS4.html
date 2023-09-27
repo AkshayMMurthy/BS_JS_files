@@ -29,9 +29,11 @@
         const resele = document.getElementById("r1");
         const options = { day: '2-digit', month: 'numeric', year: 'numeric' };
       const dp = currentDate.toLocaleDateString(undefined, options).split('/');
-      const day = dp[0];
-      const month = dp[1];
-      const year = dp[2];
+              const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
       const m2 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       const fd = `${day}/${m2[month - 1]}/${year}`;
       resele.textContent = `${fd}`;
