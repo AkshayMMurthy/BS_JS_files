@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Reversal</title>
+  <style>
+    .abc {
+        margin:center;
+        padding-left: 500px;
+    }
+    #res {
+        margin:center;
+        padding-left: 500px;
+    }
+  </style>
+</head>
+<body>
+  <form class="abc">
+    <label for="num">Enter a number: </label>
+    <input type="num" id="num" name="num">
+    <input type="button" value="Reverse" onclick="rev()">
+  </form>
+
+  <p id="res"></p>
+
+  <script>
+    function rev() {
+      const inp = document.getElementById("num");
+      const resele = document.getElementById("res");
+
+      const originalnum = parseFloat(inp.value);
+
+      if (isNaN(originalnum)) {
+        resultElement.textContent = "Please enter a valid number.";
+      } else {
+        const revnum = parseFloat(originalnum.toString().split('').reverse().join(''));
+        resele.textContent = `Reversed Number: ${revnum}`;
+      }
+    }
+  </script>
+</body>
+</html>

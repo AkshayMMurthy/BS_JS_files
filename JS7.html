@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.image {
+  animation:infinite;
+  animation-name: animation;
+  animation-duration: 5s;
+  animation-timing-function:ease-in;
+  animation-play-state: paused;
+}
+
+.bdiv {
+    margin-left:650px;
+}
+
+@keyframes animation {
+  from 
+  {
+    transform: translateX(0)
+}
+  to {
+    transform: translateX(1000px)
+}
+}
+
+h1 {
+    margin-left:400px;
+    color:darkblue
+
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="image" id="image"><img src="C:/Users/aksha/Downloads/train.png"></div>
+
+<h1>Click the following buttons to handle animation</h1>
+<div class="bdiv">
+<button onclick="play()">Start</button>
+<button onclick="pause()">Stop</button>
+</div>
+
+<script>
+    function play()
+    {
+        document.getElementById("image").style.animationPlayState = "running";
+    }
+
+    function pause()
+    {
+        document.getElementById("image").style.animationPlayState = "paused";
+    }
+</script>
+</body>
+</html>
+
+

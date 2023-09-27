@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #str,#res {
+        margin-left: 500px;
+    }
+  </style>
+</head>
+<body>
+  
+  <form id="str">
+    <label for="inp">Enter a string: </label>
+    <input type="text" id="inp" name="inp">
+    <input type="button" value="Sort" onclick="sort()">
+  </form>
+
+  <p id="res"></p>
+
+  <script>
+    function sort()
+    {
+      const inpele = document.getElementById("inp");
+      const result = document.getElementById("res");
+
+      const inp = inpele.value;
+      const sor = inp.split('').sort().join('');
+
+      result.textContent = `Sorted String: ${sor}`;
+    }
+  </script>
+</body>
+</html>

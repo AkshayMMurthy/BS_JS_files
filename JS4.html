@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <style>
+    * {
+        margin-left: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <button id="sdb" onclick = "showdate()">Show Date</button>
+  
+<br>
+  <p id="r1"></p>
+
+  <button id="stb" onclick = "showtime()">Show Time</button>
+  <p id="r2"></p>
+
+  <script>
+
+    function showdate()
+    {
+        const sdb = document.getElementById("sdb");
+        const currentDate = new Date();
+
+        const resele = document.getElementById("r1");
+        const options = { day: '2-digit', month: 'numeric', year: 'numeric' };
+      const dp = currentDate.toLocaleDateString(undefined, options).split('/');
+      const day = dp[0];
+      const month = dp[1];
+      const year = dp[2];
+      const m2 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const fd = `${day}/${m2[month - 1]}/${year}`;
+      resele.textContent = `${fd}`;
+    
+        
+
+
+    }
+
+    function showtime()
+    {
+        const stb = document.getElementById("stb");
+        const ct = new Date();
+      
+      const resele = document.getElementById("r2");
+      resele.textContent = `${ct}`;
+
+      
+    }
+
+
+   
+   
+    const resele = document.getElementById("result");
+
+  </script>
+</body>
+</html>

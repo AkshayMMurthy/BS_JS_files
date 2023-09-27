@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #abc {
+        margin-left: 500px;
+    }
+
+    p {
+        margin-left:500px;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <form id="abc">
+    <label for="n1">1st Number : </label>
+    <input type="num" id="n1" name="n1" required><br><br>
+    
+    <label for="n2">2nd Number : </label>
+    <input type="num" id="n2" name="n2" required><br><br>
+
+    <div class="xyz">
+    <input type="button" value="Multiply" onclick="multiply()">
+    <input type="button" value="Divide" onclick ="divide()">
+</div>
+  </form>
+
+  <p>The Result is :</p>
+  <p id="res"></p>
+  
+  </body>
+  <script>
+
+    function multiply()
+    {
+        
+        const n1 = parseFloat(document.getElementById("n1").value);
+        const n2 = parseFloat(document.getElementById("n2").value);
+        const mulres = n1 * n2;
+        document.getElementById("res").textContent = `${mulres}`;
+        
+    }
+
+    function divide()
+    {
+        const n1 = parseFloat(document.getElementById("n1").value);
+        const n2 = parseFloat(document.getElementById("n2").value);
+        const divres = n1 / n2;
+        document.getElementById("res").textContent = `${divres}`;
+
+    }
+
+    
+  </script>
+</body>
+</html>

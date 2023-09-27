@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <style>
+    .c-form-gpo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      margin-left: 600px;
+    }
+
+    .c-form-gpo label {
+      margin-right: 10px;
+    }
+
+    .c-err-message {
+      color: red;
+      padding-left: 20px;
+    }
+
+
+    .c-invalid-input {
+      border: 3px solid red;
+    }
+
+    #c-submit {
+      margin-left: 600px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="cContactForm">
+    <div class="c-form-gpo">
+      <label for="cName">Name:</label>
+      <input type="text" id="cName" name="cName">
+      <p id="cNameerr" class="c-err-message"></p>
+    </div>
+    
+    <div class="c-form-gpo">
+      <label for="cEmail">Email:</label>
+      <input type="text" id="cEmail" name="cEmail">
+      <p id="cEmailerr" class="c-err-message"></p>
+    </div>
+    
+    <div class="c-form-gpo">
+      <label for="cWebsite">Website:</label>
+      <input type="text" id="cWebsite" name="cWebsite">
+      <p id="cWebsiteerr" class="c-err-message"></p>
+    </div>
+    
+    <div class="c-form-gpo">
+      <label for="cMessage">Message:</label>
+      <textarea id="cMessage" name="cMessage"></textarea>
+      <p id="cMessageerr" class="c-err-message"></p>
+    </div>
+    
+    <input type="submit" id="c-submit" value="Submit">
+  </form>
+
+  <script>
+    const cForm = document.getElementById("cContactForm");
+
+    cForm.addEventListener("submit", function(event) {
+      let valid = true;
+      const cNameInput = document.getElementById("cName");
+      const cEmailInput = document.getElementById("cEmail");
+      const cWebsiteInput = document.getElementById("cWebsite");
+      const cMessageInput = document.getElementById("cMessage");
+
+      const cNameerr = document.getElementById("cNameerr");
+      const cEmailerr = document.getElementById("cEmailerr");
+      const cWebsiteerr = document.getElementById("cWebsiteerr");
+      const cMessageerr = document.getElementById("cMessageerr");
+
+      if (cNameInput.value.trim() === "") {
+        cNameerr.textContent = "Name is required";
+        cNameInput.classList.add("c-invalid-input");
+        valid = false;
+      } else {
+        cNameerr.textContent = "";
+        cNameInput.classList.remove("c-invalid-input");
+      }
+
+      const cEmailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (cEmailInput.value.trim() === "" || !cEmailInput.value.match(cEmailRegex)) {
+        cEmailerr.textContent = "Valid email is required";
+        cEmailInput.classList.add("c-invalid-input");
+        valid = false;
+      } else {
+        cEmailerr.textContent = "";
+        cEmailInput.classList.remove("c-invalid-input");
+      }
+
+      const cWebsiteRegex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}\/?([a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/;
+      if (cWebsiteInput.value.trim() === "" || !cWebsiteInput.value.match(cWebsiteRegex)) {
+        cWebsiteerr.textContent = "Valid website URL is required";
+        cWebsiteInput.classList.add("c-invalid-input");
+        valid = false;
+      } else {
+        cWebsiteerr.textContent = "";
+        cWebsiteInput.classList.remove("c-invalid-input");
+      }
+
+      if (cMessageInput.value.trim() === "") {
+        cMessageerr.textContent = "Message is required";
+        cMessageInput.classList.add("c-invalid-input");
+        valid = false;
+      } else {
+        cMessageerr.textContent = "";
+        cMessageInput.classList.remove("c-invalid-input");
+      }
+
+      if (!valid) {
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
