@@ -165,7 +165,7 @@ body{
     function strengthChecker1()
     {
         var pwd = document.getElementById("first").value;
-           if(pwd.length >= 5)
+           if(pwd.length > 0)
            {
             document.getElementById("fname").innerHTML = "STRONG";
             document.getElementById("fname").style.color="green";
@@ -179,7 +179,7 @@ body{
     function strengthChecker2()
     {
         var pwd = document.getElementById("last").value;
-           if(pwd.length > 5)
+           if(pwd.length > 0)
            {
             document.getElementById("lname").innerHTML = "STRONG";
             document.getElementById("lname").style.color="green";
@@ -193,7 +193,7 @@ body{
     function strengthChecker3()
     {
         var pwd = document.getElementById("email").value;
-           if(pwd.length > 5)
+           if(pwd.length > 0)
            {
             document.getElementById("name1").innerHTML = "STRONG";
             document.getElementById("name1").style.color="green";
@@ -207,7 +207,7 @@ body{
     function strengthChecker4()
     {
         var pwd = document.getElementById("password").value;
-           if(pwd.length > 5)
+           if(pwd.length > 4)
            {
             document.getElementById("name2").innerHTML = "STRONG";
             document.getElementById("name2").style.color="green";
@@ -222,7 +222,7 @@ body{
     function strengthChecker5()
     {
         var pwd = document.getElementById("repassword").value;
-           if(pwd.length > 5)
+           if(pwd.length > 4)
            {
             document.getElementById("name3").innerHTML = "STRONG";
             document.getElementById("name3").style.color="green";
